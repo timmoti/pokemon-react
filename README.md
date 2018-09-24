@@ -36,4 +36,5 @@ The css for this exercise is given in `index.css` or feel free to customise the 
   * thunder: "#e3c260"
   * psychic: "#ff2482"
   * ice: "#b282f2"
+  
 ![Giphy](https://media.giphy.com/media/1xlocWLAu6Pdr8Fh3V/giphy.gif)
