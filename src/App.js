@@ -1,50 +1,19 @@
 import React, { Component } from "react";
 import Card from "./Card";
-import { getPokemons } from "./pokemonData";
+
+const pokemon = {
+  name: "Charmander",
+  type: "fire",
+  price: 20,
+  image: "https://cdn.bulbagarden.net/upload/7/73/004Charmander.png"
+};
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pokemons: getPokemons(),
-      keyword: ""
-    };
-  }
-
-  handleInputChange(event) {
-    this.setState({
-      keyword: event.target.value.toLowerCase()
-    });
-  }
-
   render() {
-    const { keyword, pokemons } = this.state;
-    const filteredPokemons = pokemons.filter(pokemon => {
-      const name = pokemon.name.toLowerCase();
-      return name.indexOf(keyword) > -1;
-    });
     return (
       <div className="wrapper">
-        <div className="filterInput">
-          <input
-            type="text"
-            value={keyword}
-            onChange={this.handleInputChange.bind(this)}
-            placeholder="Search your Pokedex!"
-          />
-        </div>
-
         <div className="list">
-          {filteredPokemons.length > 0 &&
-            filteredPokemons.map(pokemon => {
-              return <Card pokemon={pokemon} />;
-            })}
-
-          {filteredPokemons.length === 0 && (
-            <div className="list-empty">
-              <p>Oops! We don't have the pokemon you are looking for!</p>
-            </div>
-          )}
+          <Card pokemon={pokemon} />
         </div>
       </div>
     );
